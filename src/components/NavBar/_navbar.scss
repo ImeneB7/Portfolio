@@ -1,0 +1,110 @@
+@import '../../sass/utils/_mixins';
+@import '../../sass/utils/variables';
+
+.navbar {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 1.5rem 1rem;
+    position: sticky;
+    margin-top: 20px;
+    z-index: 10;
+    backdrop-filter: blur(50px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+    max-width: auto;
+    height: auto;  
+    margin: 0 auto;
+    padding: 1rem;
+    box-shadow: 0 0 15px #C77DFF;
+
+    .logo {
+        max-width: 150px;
+        max-height: 150px;
+        display: block;
+        border-radius: 85px;
+        box-shadow: 0 0 15px #C77DFF;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        padding: 0;
+
+        li {
+            margin: 0 1rem;
+        }
+    }
+
+    .menu-item a {
+        display: inline-flex;
+        text-shadow: 0 0 5px #C77DFF;
+        font-family: $font-family;
+        text-decoration: none;
+        font-size: 22px;
+        font-weight: 500;
+        color: #fff;
+        position: relative;
+        cursor: pointer;
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #fff;
+            transition: width 0.4s ease;
+            
+        }
+
+        &:hover::before {
+            width: 100%;
+        }
+    }
+
+    .menu-btn {
+        width: 2.8rem;
+        height: 2.5rem;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 0.4rem;
+        color: #fff;
+        background-color: linear-gradient(90deg, #a993fe -0.13%, #7e61e7 99.87%);
+        line-height: 0;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        display: none;
+        
+        
+        &:hover {
+            color: #a993fe;
+            background: #000;
+            border: 1px solid #a993fe;
+        }
+
+    }
+
+}
+
+@media (max-width: 769px) {
+
+    .navbar  {
+
+        .menu-btn {
+            display: block;
+        }    
+        
+        ul {
+            display: none;
+        }
+
+        .menu-item {
+            display: none;
+        }
+}
+
+}

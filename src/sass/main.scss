@@ -1,0 +1,21 @@
+@import '../components/NavBar/navbar.scss';
+@import '../components/Banner/banner.scss';
+@import '../components/Header/header.scss';
+@import '../components/Footer/footer.scss';
+@import '../sass/utils/variables';
+
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #fff;
+    background-color: #060417;
+    height: 100vh;
+    font-family: $font-family;
+}
+

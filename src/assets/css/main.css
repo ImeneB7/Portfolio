@@ -1,0 +1,133 @@
+.navbar {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 1rem;
+  position: sticky;
+  margin-top: 20px;
+  z-index: 10;
+  backdrop-filter: blur(50px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: auto;
+  height: auto;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.navbar .logo {
+  max-width: 150px;
+  max-height: 150px;
+  display: block;
+  border-radius: 85px;
+  box-shadow: 0 0 15px #C77DFF;
+}
+.navbar .nav-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+.navbar .nav-links li {
+  margin: 0 1rem;
+}
+.navbar .menu-item a {
+  display: inline-flex;
+  text-shadow: 0 0 5px #C77DFF;
+  font-family: "Playwrite";
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 500;
+  color: #fff;
+  position: relative;
+  cursor: pointer;
+}
+.navbar .menu-item a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.4s ease;
+}
+.navbar .menu-item a:hover::before {
+  width: 100%;
+}
+.navbar .menu-btn {
+  width: 2.8rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 0.4rem;
+  color: #fff;
+  background-color: linear-gradient(90deg, #a993fe -0.13%, #7e61e7 99.87%);
+  line-height: 0;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: none;
+}
+.navbar .menu-btn:hover {
+  color: #a993fe;
+  background: #000;
+  border: 1px solid #a993fe;
+}
+
+@media (max-width: 769px) {
+  .navbar .menu-btn {
+    display: block;
+  }
+  .navbar ul {
+    display: none;
+  }
+  .navbar .menu-item {
+    display: none;
+  }
+}
+/*header {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 10%;
+    width: 100%;
+
+    z-index: 10;
+}*/
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 2rem;
+  margin-top: 57%;
+  height: 5rem;
+  background: rgba(0, 0, 0, 0.1);
+}
+footer p {
+  align-items: center;
+  color: #fff;
+  flex: 1;
+}
+footer .social-links {
+  display: flex;
+  gap: 1rem;
+}
+footer .social-links a img {
+  width: 50px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #fff;
+  background-color: #060417;
+  height: 100vh;
+  font-family: "Playwrite";
+}/*# sourceMappingURL=main.css.map */

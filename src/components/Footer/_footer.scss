@@ -1,0 +1,30 @@
+footer  {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 2rem;
+    margin-top: 57%;
+    height: 5rem;
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px #C77DFF;
+
+    p {
+        align-items: center;
+        color: #fff;
+        flex: 1;
+    }
+
+    .social-links  {
+        display: flex;
+        gap: 1rem;
+
+        a {
+            img {
+                width: 50px;
+            }
+        }
+    }
+
+    
+   
+}
