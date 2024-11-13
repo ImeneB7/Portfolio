@@ -5,6 +5,9 @@ import About from '../pages/About';
 import Projets from '../pages/Projets';
 import Contact from '../pages/Contact';
 import NotFound404 from '../pages/NotFound404';
+import Login from '../pages/Login';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 function App() {
 
@@ -15,6 +18,7 @@ function App() {
                 <Route path="/projets" element={<Projets/>}/>
                 <Route path="/about" element={<About/>} />
                 <Route path="/contact" element={<Contact/>}/>
+                <Route path="/login" element={<Login/>} ></Route>
                 <Route path="*" element={<NotFound404/>}/>
             </Routes>
         </Router>

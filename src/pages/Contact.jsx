@@ -8,7 +8,7 @@ const Contact = () => {
         <>
         <NavBar/>
         <section className="contact">
-            <form>
+            <form className="contact_form">
                 <h2>Contactez Moi</h2>
                 <div className="input-box">
                     <label htmlFor="">Nom</label>

@@ -2,33 +2,51 @@
 @import '../../sass/utils/variables';
 
 .navbar {
-    background: rgba(0, 0, 0, 0.1);
-    padding: 1.5rem 1rem;
+    background: linear-gradient(90deg, #2d0046, #0a022e);
+    //background: rgba(32, 4, 48, 0);//
+    padding: 1rem 1.5rem;
     position: sticky;
     margin-top: 20px;
     z-index: 10;
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(20px);
     display: flex;
     justify-content: space-between;
-    align-items: center;  
-    max-width: auto;
-    height: auto;  
-    margin: 0 auto;
-    padding: 1rem;
-    box-shadow: 0 0 15px #C77DFF;
+    align-items: center;   
+    height: 100px;  
+    margin: 0 auto;   
+    box-shadow: 0 4px 15px rgba(199, 125, 255, 0.2);
+    border-radius: 0 0 30px 0;
+    gap: 1rem;
 
     .logo {
+        position: absolute;
+        top: 20%;
         max-width: 150px;
         max-height: 150px;
         display: block;
-        border-radius: 85px;
-        box-shadow: 0 0 15px #C77DFF;
+        border-radius: 50%;
+        z-index: 80;
+        box-shadow: 0 4px 15px #C77DFF;
+        animation: rotate  3s linear infinite;
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(15deg);
+        }
+        50% {
+            transform: rotate(-15deg);
+        }
+        100% {
+            transform: rotate(15deg);
+        }
     }
 
     .nav-links {
         display: flex;
         list-style: none;
         padding: 0;
+        margin-left: auto;
 
         li {
             margin: 0 1rem;
@@ -36,8 +54,7 @@
     }
 
     .menu-item a {
-        display: inline-flex;
-        text-shadow: 0 0 5px #C77DFF;
+        display: inline-flex;     
         font-family: $font-family;
         text-decoration: none;
         font-size: 22px;
@@ -45,11 +62,12 @@
         color: #fff;
         position: relative;
         cursor: pointer;
+        transition: color 0.3s ease;
 
         &::before {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -4px;
             left: 0;
             width: 0;
             height: 2px;
@@ -58,9 +76,14 @@
             
         }
 
-        &:hover::before {
+        &:hover,
+        &.active {
+            color: #C77DFF;
+            &::before {
             width: 100%;
+            background-color: #C77DFF;
         }
+    }
     }
 
     .menu-btn {
@@ -88,23 +111,98 @@
 
     }
 
+    .login-icon i {
+        display: flex;
+        position: relative;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        width: 40px;
+        height: 40px;
+    
+        &:hover {
+            color: #a993fe;
+        }
+    }
+
+
 }
 
 @media (max-width: 769px) {
 
-    .navbar  {
-
+.logo {
+    position: relative;
+    left: 0;
+    margin-top: 30px;
+    width: 90px;
+}
         .menu-btn {
             display: block;
-        }    
-        
-        ul {
-            display: none;
-        }
+            position: fixed;
+            z-index: 10000;
+            display: block; 
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 100; 
+            background: rgba(32, 4, 48, 0.8);
+            color: #fff;
+            border: none;
+            font-size: 1.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: 0.3s ease;
 
-        .menu-item {
-            display: none;
+            &:hover {
+                background: rgba(32, 4, 48, 1);
+            }
+        }    
+        .navbar {
+            border-radius: 0;
         }
+        .nav-links {
+            display: none; 
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, #2d0046, #0a022e);
+            padding: 1rem 0;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            transition: transform 0.3s ease;
+            transform: translateY(100%); /* Masque l'élément hors de la vue */
+
+            &.open {
+                display: flex; // affiché si "open" est ajouté
+                transform: translateY(); /* Animation d'apparition de la fenêtre */
+            }
+
+            .menu-item {
+                padding: 1rem;
+                width: 100%;
+                text-align: center;
+
+                a {
+                    color: #fff;
+                    font-size: 1.2rem;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: #C77DFF;
+                    }
+                }
+            }
+        
 }
+
+    .login-icon {
+        position: relative;
+        left: 100%;
+    }
 
 }

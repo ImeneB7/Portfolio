@@ -1,0 +1,140 @@
+@import '../../sass/utils/mixins';
+@import '../../sass/utils/_variables';
+
+.projet_title {
+    @include center;
+    background: #fff;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    flex-direction: column;
+    font-size: 48px;
+    margin-top: 80px;
+    font-family: $font-family;
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideInFromRight 1.5s ease-out forwards;
+
+    @keyframes slideInFromRight {
+        0% {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}
+
+
+.project-card {
+    position: absolute;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 40px;
+    color: #fff;
+    padding: 0px;
+    transition: transform 0.3s;
+    width: 100%;
+    height: 100%;
+
+
+    
+    &.active {
+        width: 100%;
+        height: 100%;
+    }
+
+    
+    &.thumbnail {
+        border: #af75ce 3px solid;
+        position: absolute;
+        width: 140px; 
+        height: 220px; 
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s;
+
+        &:hover, &.active {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+
+        .content {
+            display: none;
+        }
+    }
+    
+    
+    .content {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        color: #fff;
+        text-shadow: 0 2px 8px #190961;
+        
+
+        .title {
+            font-size: 5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            
+        }
+
+        .name {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            button {
+                background-color: #af75ce;
+                border-radius: 15px;
+                padding: 8px 12px;
+                border: none;
+                cursor: pointer;
+                transition: 0.3s;
+                color: #fff;
+
+
+                &:hover {
+                    background-color: #190961;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 769px) {
+
+    .projet_title {
+        margin-top: 90%;
+        font-size: 30px;
+    }
+
+    .project-card.thumbnail {
+        width: 80px;
+        height: 130px;
+        margin-top: 90px;
+        margin-left: 150px;
+    }
+
+    .project-card.active {
+        .title{
+        font-size: 22px;
+    }
+        .name {
+            font-size: 20px;
+        }
+    }
+}

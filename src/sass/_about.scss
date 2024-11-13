@@ -3,12 +3,17 @@
 
 .about_title {
     @include center;
+    background: #fff;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     flex-direction: column;
     font-size: 48px;
-    margin-top: 50px;
+    margin-top: 2rem;
+    font-family: $font-family;
     opacity: 0;
     transform: translateX(50px);
-    animation: slideInFromRight 1s ease-out forwards;
+    animation: slideInFromRight 1.5s ease-out forwards;
 }
 
 .about-container {
@@ -20,11 +25,12 @@
 }
 
 .about-content {
-    background-color: #fff;
+    background: linear-gradient(90deg, #2d0046, #0a022e);
+    box-shadow: 0 0 15px #C77DFF;
     padding: 2rem;
-    border-radius: 28px;
+    border-radius: 20px;
     max-width: 90%;
-    margin-top: 8rem;
+    margin-top: 4rem;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeIn 2s ease-out forwards;
@@ -32,8 +38,54 @@
     p {
         font-size: 22px;
         line-height: 1.6;
-        color: black;
+        color: #fff;
+        text-justify: auto;
     }
+}
+
+.about_skills {
+    @include center;
+    background: linear-gradient(90deg, #2d0046, #0a022e);
+    box-shadow: 0 0 15px #C77DFF;
+    padding-right: 10px;
+    border-radius: 20px;
+    width: 90%;
+    margin-top: 4rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 2s ease-out forwards;
+
+    div {
+        
+        :hover + .tooltip {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        img {
+            size: 50px;
+            position: relative;
+    
+            
+        }
+    
+        .tooltip {
+            position: absolute;
+            bottom: 190px;
+            transform: translateX(-50%) translateY(10px);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 8px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+            white-space: wrap;
+            z-index: 10;
+        }
+    }
+    
 }
 
 @keyframes fadeIn {
@@ -55,5 +107,32 @@
     100% {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+@media (max-width: 769px) {
+    .about_title, .about-container, .about-content, .about_skills {
+        position: relative;
+        top: 100px;
+    }
+
+    .about_title {
+        margin-top: 120px;
+        font-size: 28px;
+    }
+
+    .about-content {
+
+        p {
+           font-size: 18px; 
+        }    
+    }
+
+    .about_skills {
+        
+        img {
+            margin-left: 25px;
+            width: 40px;
+        }
     }
 }
