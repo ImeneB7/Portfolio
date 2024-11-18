@@ -7,7 +7,7 @@ import '../Slider/_slider.scss';
 const Slider = () => {
     // Filtrons les projets pour en sélectionner deux spécifiques
     const specificProjects = data.filter(
-        project => project.id === "project1" || project.id === "project2"
+        project => project.id === "project5" || project.id === "project9"
     );
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -23,7 +23,7 @@ const Slider = () => {
 
     const currentProject = data[currentIndex]
 
-    return (
+    return ( 
         <div className="home-slider">
             <div className="slider-content">
                 <div className="slider-main">

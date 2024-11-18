@@ -42,12 +42,6 @@ const NavBar = () => {
                 <span>
                 </span>
             </button>
-            <NavLink to="/login" className="login-icon" >
-                <i className="fa-solid fa-user" ></i>
-            </NavLink>
-            <div>
-
-            </div>
         </nav>
     )
 

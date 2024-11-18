@@ -24,7 +24,7 @@
     //box-shadow: 0 0 15px #C77DFF;//
 }
 
-.about-content {
+.about-me {
     background: linear-gradient(90deg, #2d0046, #0a022e);
     box-shadow: 0 0 15px #C77DFF;
     padding: 2rem;
@@ -88,6 +88,37 @@
     
 }
 
+.about-links {
+    @include center;
+    background: linear-gradient(90deg, #2d0046, #0a022e);
+    box-shadow: 0 0 15px #C77DFF;
+    padding-right: 10px;
+    border-radius: 20px;
+    width: 90%;
+    height: 100px;
+    margin-top: 4rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 2s ease-out forwards;
+
+    p {
+        color: #fff;
+        font-size: 22px;
+        margin: 20px;
+    }
+
+    a {
+        color: #fff;
+        font-size: 24px;
+        margin-right: 20px;
+    }
+
+    img {
+        width: 100px;
+
+    }
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -111,7 +142,7 @@
 }
 
 @media (max-width: 769px) {
-    .about_title, .about-container, .about-content, .about_skills {
+    .about_title, .about-container, .about-me, .about_skills {
         position: relative;
         top: 100px;
     }
@@ -121,7 +152,7 @@
         font-size: 28px;
     }
 
-    .about-content {
+    .about-me {
 
         p {
            font-size: 18px; 
@@ -129,7 +160,9 @@
     }
 
     .about_skills {
+        display: grid;
         
+        grid-template-columns: repeat(2, 1fr);
         img {
             margin-left: 25px;
             width: 40px;
