@@ -161,11 +161,31 @@
 
     .about_skills {
         display: grid;
-        
         grid-template-columns: repeat(2, 1fr);
         img {
-            margin-left: 25px;
+            margin-left: 45%;
             width: 40px;
+        }
+    }
+
+    .about-links {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        p, a {
+            font-size: 15px;         
+        }
+        
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+
+    .about_skills {
+
+        img {
+            width: 60px;
         }
     }
 }
