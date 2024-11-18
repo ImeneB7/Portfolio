@@ -20,7 +20,7 @@
         "cover": "/projets/booki.webp",
         "alt": "Photo d'un hébergement",
         "description":  "Ce projet consiste à intégrer l'interface du site Booki en utilisant du HTML et CSS",
-        "mission": "En tant que développeur web en alternance, je rejoins l'agence d'hébergement Booki pour mettre en place l'interface du site.",
+        "mission": "En tant que développeuse web en alternance, je rejoins l'agence d'hébergement Booki pour mettre en place l'interface du site.",
         "tags": "HTML, CSS, Responsive, Figma, Vscode",
 
         "site": "",
@@ -75,7 +75,7 @@
         "cover": "/projets/kasa.webp",
         "alt": "Photo de l'interface du site de l'agence",
         "description":  "Ce projet nous apprends à coder un site avec React",
-        "mission": "Je suis en mission dans l'agence Kasa en tant que développeur web en freelance. Je dois mettre en place l'application web en utilisant React",
+        "mission": "Je suis en mission dans l'agence Kasa en tant que développeuse web en freelance. Je dois mettre en place l'application web en utilisant React",
         "tags": "React, React-Router",
         "site": "",
         "github": "https://github.com/ImeneB7/kasa"        
@@ -88,7 +88,7 @@
         "cover": "/projets/ninacarducci.webp",
         "alt": "Photo de l'interface du site de la photographe",
         "description":  "Ce projet consiste à améliorer les performances et le référencement du site",
-        "mission": "Je suis développeur web en freelance à la recherche de nouveaux clients afin de l'aider à optimiser leur site. Je contacte une photographe qui accepte que je l'aide dans l'optimisation et le référencement de son site",
+        "mission": "Je suis développeuse web en freelance à la recherche de nouveaux clients afin de l'aider à optimiser leur site. Je contacte une photographe qui accepte que je l'aide dans l'optimisation et le référencement de son site",
         "tags": "HTML, CSS, Javascript, Responsive, SEO",
         "site": "",
         "github": "https://github.com/ImeneB7/NinaCarducci"        

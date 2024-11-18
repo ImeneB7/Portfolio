@@ -5,7 +5,7 @@ import arrowRight from '../../assets/img/arrow_right.png';
 import '../Slider/_slider.scss';
 
 const Slider = () => {
-    // Filtrons les projets pour en sélectionner deux spécifiques
+    // Filtre les projets pour en sélectionner deux en particulier
     const specificProjects = data.filter(
         project => project.id === "project5" || project.id === "project9"
     );
@@ -21,7 +21,6 @@ const Slider = () => {
         );
     };
 
-    const currentProject = data[currentIndex]
 
     return ( 
         <div className="home-slider">
@@ -30,7 +29,7 @@ const Slider = () => {
                     <img src={specificProjects[currentIndex].cover} alt={specificProjects[currentIndex].title} />
                     <div className="slider-overlay">
                         <h2>{specificProjects[currentIndex].title}</h2>
-                        <p>{currentProject.mission}</p>
+                        <p>{specificProjects[currentIndex].mission}</p>
                     </div>
                 </div>
                 <div className="slider-controls">

@@ -1,0 +1,10 @@
+@import '../sass/utils/mixins';
+@import '../sass/utils/variables';
+
+.error-content {
+    color: #fff;
+
+    h2 {
+        font-size: 200px;
+    }
+}
