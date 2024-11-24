@@ -14,13 +14,14 @@
 
 .modal-content {
     @include center;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     object-fit: cover;
     border: #fff 2px solid;
     background: linear-gradient(90deg, #3c015c, #06011a);   
     padding: 20px;
     border-radius: 8px;
-    max-width: 600px;
+    max-width: 800px;
     height: 600px;
     width: 90%;
 
@@ -31,6 +32,7 @@
         max-height: 300px;
         border-radius: 20px;
         overflow: hidden;
+        
     }
 
     h2 {
@@ -40,11 +42,13 @@
     }
 
     p {
+        margin-top: 10px;
         color: #fff;
     }
 }
 
 .close-button {
+    color: #fff;
     background: none;
     border: none;
     font-size: 1.5rem;
@@ -52,4 +56,46 @@
     top: 10px;
     right: 10px;
     cursor: pointer;
+}
+
+.github-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    
+    padding: 10px ;
+    border: 2px solid #C77DFF;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover {
+        background-color: #C77DFF;
+        color: #fff;
+    }
+
+    img {
+        margin-right: 8px;
+        width: 20px;
+        height: 20px;
+    }
+}
+.skills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+        color: #fff;
+        margin-bottom: 20px;
+    }
+   .skill-icons {
+    display: flex;
+    flex-direction: row;
+    width: 100px;
+} 
 }

@@ -5,7 +5,7 @@ const ProjectCard = ({cover, title, onClick}) => {
     
     return (
         <div className="project-card" onClick={onClick}>
-            <img src={cover} alt={title} />
+             <img src={`${process.env.PUBLIC_URL}${cover}`} alt={title} />
             <div className="overlay">
                 <h3>{title}</h3>
             </div>

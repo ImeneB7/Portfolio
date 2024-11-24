@@ -4,7 +4,7 @@ import Footer from '../components/Footer/Footer';
 import Slider from '../components/Slider//Slider';
 import '../sass/_home.scss';
 import HTML from "../assets/img/html.webp";
-import CSS from "../assets/img/css (1).webp";
+import CSS from "../assets/img/css.webp";
 import Javascript from "../assets/img/javascript.webp";
 
 const Home = () => {

@@ -1,14 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar/NavBar";
 import Footer from "../components/Footer/Footer";
 import ProjectCard from "../components/ProjectCard/ProjectCard";
 import ProjectModal from "../components/ProjectModal/ProjectModal";
 import '../sass/_projets.scss';
-import data from '../datas/data.json';
+import axios from 'axios';
+//import data from '../datas/data.json';
 
 const Projets = () => {
-
+    const [projects, setProjects] =useState([]);
     const [selectedProject, setSelectedProject] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null)
+
+    useEffect(() => {
+        axios.get('http://localhost:5002/api/projects')
+        .then(response => {
+            setProjects(response.data);
+            setLoading(false);
+        })
+        .catch((err => {
+            setError("Erreur lors de la récupération des projects");
+            console.error(err);
+            setLoading(false);
+        })
+    )
+    },[])
 
     const handleProjectClick = (project) => {
         setSelectedProject(project);
@@ -16,6 +33,13 @@ const Projets = () => {
 
     const closeModal = () => {
         setSelectedProject(null)
+    };
+
+    if (loading) {
+        return <p>Chargement des projets...</p>
+    }
+    if (error) {
+        return <p>{error}</p>
     }
 
     return (
@@ -24,7 +48,7 @@ const Projets = () => {
             <div>
                 <h2 className="projet_title">Projets</h2>
                 <div className="container_project">
-                    {data.slice(0,10).map((project) => (
+                    {projects.map((project) => ( // {data.slice(0,10).map((project) => ( si pas de back end
                         <ProjectCard
                             key={project.id}
                             cover={project.cover}

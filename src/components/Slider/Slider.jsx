@@ -26,7 +26,8 @@ const Slider = () => {
         <div className="home-slider">
             <div className="slider-content">
                 <div className="slider-main">
-                    <img src={specificProjects[currentIndex].cover} alt={specificProjects[currentIndex].title} />
+                    <img src={`${process.env.PUBLIC_URL}${specificProjects[currentIndex].cover}`}
+                    alt={specificProjects[currentIndex].title} />
                     <div className="slider-overlay">
                         <h2>{specificProjects[currentIndex].title}</h2>
                         <p>{specificProjects[currentIndex].mission}</p>
@@ -48,7 +49,7 @@ const Slider = () => {
                         className={`thumbnail ${index === currentIndex ? 'active' : ''}`}
                         onClick={() => setCurrentIndex(index)}
                     >
-                        <img src={project.cover} alt={project.title} />
+                        <img src={`${process.env.PUBLIC_URL}${project.cover}`} alt={project.title} />
                         <span>{project.title}</span>
                     </div>
                 ))}

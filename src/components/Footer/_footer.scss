@@ -6,7 +6,8 @@ footer  {
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1rem;
-    margin-top: 30%;
+    margin: 0;
+    margin-top: 2rem;
     height: 5rem;
     background: rgba(0, 0, 0, 0.1);
     background: linear-gradient(90deg, #2d0046, #0a022e);
@@ -52,6 +53,7 @@ footer  {
 @media (max-width: 769px) {
 
     footer {
+        
 
         p {
             font-size: 15px;

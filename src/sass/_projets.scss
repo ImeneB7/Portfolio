@@ -39,6 +39,18 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     border-radius: 20px;
+    transform: translateY(30px);
+    animation: fadeInUp 1.5s ease forwards;
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(80px);
+        } 100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1200px) {
