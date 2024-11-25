@@ -1,0 +1,47 @@
+@import '../sass/utils/variables';
+@import '../sass/utils/mixins';
+@import '../components/NavBar/navbar.scss';
+@import '../components/Banner/banner.scss';
+@import '../components/Header/header.scss';
+@import '../components/Footer/footer.scss';
+
+
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    background: linear-gradient(90deg, #3c015c, #06011a);   
+    min-height: 100%;
+    font-family: $font-family;
+    overflow-x: hidden;
+    margin: 0;
+}
+main  {
+    flex: 1;
+}
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
