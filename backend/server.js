@@ -5,14 +5,14 @@ const mongoose = require('mongoose');
 
 // Initialiser l'application Express
 const app = express();
-const PORT = process.env.PORT || 5006;
+const PORT = process.env.PORT || 5008;
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
 // Connexion à MongoDB
-mongoose.connect('mongodb://imenebel74:Ness-743@cluster0-shard-00-00.mongodb.net:27017,cluster0-shard-00-01.mongodb.net:27017,cluster0-shard-00-02.mongodb.net:27017/portfolio?ssl=true&replicaSet=atlas-xyz-shard-0&authSource=admin')
+mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('Connecté à MongoDB'))
 .catch(err => console.error('Erreur de connexion à MongoDB :', err));
 
