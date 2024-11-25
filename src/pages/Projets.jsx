@@ -14,7 +14,7 @@ const Projets = () => {
     const [error, setError] = useState(null)
 
     useEffect(() => {
-        axios.get('http://localhost:5002/api/projects')
+        axios.get('http://localhost:5009/api/projects')
         .then(response => {
             console.log("Données récupérées :", response.data);
             setProjects(response.data);
