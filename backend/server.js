@@ -1,78 +1,79 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const fs = require('fs');
+const mongoose = require('mongoose');
 
+// Initialiser l'application Express
 const app = express();
-const PORT = process.env.PORT || 5002;
+const PORT = process.env.PORT || 5006;
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 
+// Connexion à MongoDB
+mongoose.connect('mongodb://imenebel74:Ness-743@cluster0-shard-00-00.mongodb.net:27017,cluster0-shard-00-01.mongodb.net:27017,cluster0-shard-00-02.mongodb.net:27017/portfolio?ssl=true&replicaSet=atlas-xyz-shard-0&authSource=admin')
+.then(() => console.log('Connecté à MongoDB'))
+.catch(err => console.error('Erreur de connexion à MongoDB :', err));
+
+// Modèle pour les projets
+const projectSchema = new mongoose.Schema({
+    title: { type: String, required: true },
+    description: { type: String, required: true },
+    cover: { type: String },
+    skills: { type: [String] },
+});
+
+const Project = mongoose.model('Project', projectSchema);
+
+// Routes
 app.get('/', (req, res) => {
     res.send('Bienvenue sur l\'API de gestion de projets');
 });
 
-app.get('/api/projects', (req, res) => {
-    fs.readFile('./data.json', 'utf8', (err, data) => {
-        if (err) {
-            return res.status(500).send('Erreur serveur lors de la lecture des données')
-        }
-        res.json(JSON.parse(data));
-    });
+// Récupérer tous les projets
+app.get('/api/projects', async (req, res) => {
+    try {
+        const projects = await Project.find(); // Récupère tous les projets depuis MongoDB
+        res.json(projects);
+    } catch (err) {
+        res.status(500).send('Erreur serveur');
+    }
 });
 
-app.post('/api/projects', (req, res) => {
-    const {title, description} = req.body;
+// Ajouter un nouveau projet
+app.post('/api/projects', async (req, res) => {
+    const { title, description, cover, skills } = req.body;
 
     if (!title || !description) {
-        return res.status(400).send('Les champs "title" et "description" sont obligatoires')
+        return res.status(400).send('Les champs "title" et "description" sont obligatoires');
     }
-    fs.readFile('./data.json', 'utf8', (err, data) => {
-        if (err) {
-            return res.status(500).send('Erreur serveur lors de la lecture des données');
-        }
 
-        const projects =JSON.parse(data);
-        const newProject = {
-            id: `project${projects.length + 1}`,
-            title,
-            description,
-        };
-
-        projects.push(newProject);
-
-        fs.writeFile('./data.json', JSON.stringify(projects, null, 2), (err) => {
-            if (err) {
-                return res.status(500).send('Erreur serveur lors de l\'écriture des données')
-            }
-            res.status(201).json(newProject);
-        });
-    });
+    try {
+        const newProject = new Project({ title, description, cover, skills });
+        await newProject.save(); // Sauvegarde le projet dans MongoDB
+        res.status(201).json(newProject);
+    } catch (err) {
+        res.status(500).send('Erreur serveur');
+    }
 });
 
-app.get('/api/projects/:id', (req, res) => {
-    const {id} = req.params;
-    console.log('ID demandé :', id); 
+// Récupérer un projet par ID
+app.get('/api/projects/:id', async (req, res) => {
+    const { id } = req.params;
 
-
-    fs.readFile('./data.json', 'utf8', (err, data) => {
-        if (err) {
-            return res.status(500).send('Erreur serveur lors de la lecture des données');
-        }
-
-        const projects = JSON.parse(data);
-        const project = projects.find((p) => p.id === id);
-
+    try {
+        const project = await Project.findById(id); // Recherche un projet par ID dans MongoDB
         if (!project) {
             return res.status(404).send('Projet introuvable');
         }
-
         res.json(project);
-    });
+    } catch (err) {
+        res.status(500).send('Erreur serveur');
+    }
 });
 
+// Lancer le serveur
 app.listen(PORT, () => {
     console.log(`Backend lancé sur http://localhost:${PORT}`);
-})
-
-
+});
