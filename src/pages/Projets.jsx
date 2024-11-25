@@ -16,6 +16,7 @@ const Projets = () => {
     useEffect(() => {
         axios.get('http://localhost:5002/api/projects')
         .then(response => {
+            console.log("Données récupérées :", response.data);
             setProjects(response.data);
             setLoading(false);
         })
